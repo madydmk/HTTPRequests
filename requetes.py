@@ -1,9 +1,12 @@
-def writeIn(r):
+import json
+import requests
+def writeIn(r: requests.Response):
     with open("result.json", "w") as f:
+        print(r.text)
         f.write(r.text)
-    return open("result1.json", "r") == True
-
-def toJSON(json_dataDep):
+        return True
+    return False
+def toJSON(json_dataDep: json):
     for element in json_dataDep["records"]:
         cpt = element["record"]["fields"]["cpt"]
         dep = element["record"]["fields"]["code_departement"]
